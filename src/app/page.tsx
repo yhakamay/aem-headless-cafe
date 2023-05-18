@@ -48,7 +48,7 @@ export default async function Home() {
   );
 }
 
-async function fetchBeverages(): Promise<Beverage[]> {
+export async function fetchBeverages(): Promise<Beverage[]> {
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_AEM_HOST}/graphql/execute.json/${process.env.NEXT_PUBLIC_AEM_GRAPHQL_ENDPOINT}/beverages-all`,
     {
