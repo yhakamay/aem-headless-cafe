@@ -1,3 +1,5 @@
+import { fetchBeverages } from "@/app/page";
+import { Beverage } from "@/interfaces/beverage";
 import { BeverageDetails } from "@/interfaces/beverage-details";
 import Image from "next/image";
 
@@ -28,6 +30,14 @@ export default async function BeverageDetails({
       </div>
     </div>
   );
+}
+
+export async function generateStaticParams() {
+  const beverages: Beverage[] = await fetchBeverages();
+
+  return beverages.map((beverage) => ({
+    slug: beverage.slug,
+  }));
 }
 
 async function fetchBeverageDetails(slug: string): Promise<BeverageDetails> {
