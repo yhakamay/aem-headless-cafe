@@ -50,7 +50,7 @@ export default async function Home() {
 
 async function fetchBeverages(): Promise<Beverage[]> {
   const res = await fetch(
-    "https://publish-p111360-e1081459.adobeaemcloud.com/graphql/execute.json/wknd-shared/beverages-all",
+    `${process.env.NEXT_PUBLIC_AEM_HOST}/graphql/execute.json/${process.env.NEXT_PUBLIC_AEM_GRAPHQL_ENDPOINT}/beverages-all`,
     {
       next: {
         revalidate: 60 * 60 * 24, // 24時間キャッシュする
