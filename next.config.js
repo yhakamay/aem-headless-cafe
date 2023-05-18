@@ -4,7 +4,7 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "tailwindui.com",
+        hostname: process.env.NEXT_PUBLIC_AEM_HOST_NAME,
         port: "",
       },
     ],
