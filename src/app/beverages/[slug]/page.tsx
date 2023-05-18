@@ -1,4 +1,5 @@
 import { fetchBeverages } from "@/app/page";
+import Badge from "@/components/atoms/badge";
 import { Beverage } from "@/interfaces/beverage";
 import { BeverageDetails } from "@/interfaces/beverage-details";
 import Image from "next/image";
@@ -18,6 +19,11 @@ export default async function BeverageDetails({
           <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
             {beverage.title}
           </h2>
+          {beverage.flavor && (
+            <div className="pt-3">
+              <Badge>{beverage.flavor.toUpperCase()}</Badge>
+            </div>
+          )}
           <p className="mt-4 text-gray-500">{beverage.description.plaintext}</p>
         </div>
         <Image
