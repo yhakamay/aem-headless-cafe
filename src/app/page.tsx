@@ -61,10 +61,7 @@ async function fetchBeverages(): Promise<Beverage[]> {
   if (!res.ok) throw new Error(res.statusText);
 
   const json = await res.json();
-  const { data } = json;
-  const beverages = data.beverageList.items;
-
-  console.log(beverages);
+  const beverages = json.data.beverageList.items;
 
   return beverages;
 }
