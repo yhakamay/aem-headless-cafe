@@ -7,4 +7,10 @@ export interface Beverage {
   price: number;
   description: Description;
   primaryImage: PrimaryImage;
+  _metadata: {
+    calendarMetadata: {
+      name: "jcr:created" | "cq:lastModified";
+      value: string;
+    }[];
+  };
 }
