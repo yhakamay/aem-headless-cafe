@@ -4,6 +4,20 @@ import { Beverage } from "@/interfaces/beverage";
 import { BeverageDetails } from "@/interfaces/beverage-details";
 import Image from "next/image";
 
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string };
+}) {
+  const { slug } = params;
+  const beverage = await fetchBeverageDetails(slug);
+
+  return {
+    title: beverage.title,
+    description: beverage.description.plaintext,
+  };
+}
+
 export default async function BeverageDetails({
   params,
 }: {
