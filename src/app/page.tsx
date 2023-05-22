@@ -75,7 +75,7 @@ export default async function Home() {
                     <div className="mt-4 flex justify-between">
                       <div>
                         <h3 className="text-sm text-gray-700">
-                          <Link href={`/beverages/${food.slug}`}>
+                          <Link href={`/foods/${food.slug}`}>
                             <span
                               aria-hidden="true"
                               className="absolute inset-0"
