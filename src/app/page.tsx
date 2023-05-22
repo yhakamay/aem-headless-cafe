@@ -1,4 +1,5 @@
 import { BeverageList } from "@/components/organisms/beverage-list";
+import FeaturedItems from "@/components/organisms/featured-items";
 import FoodList from "@/components/organisms/food-list";
 import { Beverage } from "@/interfaces/beverage";
 import { Food } from "@/interfaces/food";
@@ -44,6 +45,10 @@ export default async function Home() {
   return (
     <main className="flex min-h-screen flex-col justify-between">
       <div className="bg-white">
+        <FeaturedItems
+          featuredBeverage={beverages[0]}
+          featuredFood={foods[0]}
+        />
         <BeverageList beverages={beverages} />
         <FoodList foods={foods} />
       </div>
