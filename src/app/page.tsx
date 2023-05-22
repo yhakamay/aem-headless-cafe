@@ -7,6 +7,40 @@ export default async function Home() {
   const beverages = await fetchBeverages();
   const foods = await fetchFoods();
 
+  beverages.sort((a, b) => {
+    const createdA = a._metadata.calendarMetadata.find(
+      (metadata) => metadata.name === "jcr:created"
+    );
+    const createdB = b._metadata.calendarMetadata.find(
+      (metadata) => metadata.name === "jcr:created"
+    );
+
+    if (createdA && createdB) {
+      return (
+        new Date(createdA.value).getTime() - new Date(createdB.value).getTime()
+      );
+    } else {
+      return 0;
+    }
+  });
+
+  foods.sort((a, b) => {
+    const createdA = a._metadata.calendarMetadata.find(
+      (metadata) => metadata.name === "jcr:created"
+    );
+    const createdB = b._metadata.calendarMetadata.find(
+      (metadata) => metadata.name === "jcr:created"
+    );
+
+    if (createdA && createdB) {
+      return (
+        new Date(createdA.value).getTime() - new Date(createdB.value).getTime()
+      );
+    } else {
+      return 0;
+    }
+  });
+
   return (
     <main className="flex min-h-screen flex-col justify-between">
       <div className="bg-white">
