@@ -2,6 +2,7 @@ import FadeIn from "@/components/atoms/fade-in";
 import { Beverage } from "@/interfaces/beverage";
 import { Food } from "@/interfaces/food";
 import Image from "next/image";
+import Link from "next/link";
 
 export default async function Home() {
   const beverages = await fetchBeverages();
@@ -31,13 +32,13 @@ export default async function Home() {
                     <div className="mt-4 flex justify-between">
                       <div>
                         <h3 className="text-sm text-gray-700">
-                          <a href={`/beverages/${beverage.slug}`}>
+                          <Link href={`/beverages/${beverage.slug}`}>
                             <span
                               aria-hidden="true"
                               className="absolute inset-0"
                             />
                             {beverage.title}
-                          </a>
+                          </Link>
                         </h3>
                         <p className="mt-1 text-sm text-gray-500">
                           {beverage.description.plaintext.slice(0, 50)}
@@ -74,13 +75,13 @@ export default async function Home() {
                     <div className="mt-4 flex justify-between">
                       <div>
                         <h3 className="text-sm text-gray-700">
-                          <a href={`/beverages/${food.slug}`}>
+                          <Link href={`/beverages/${food.slug}`}>
                             <span
                               aria-hidden="true"
                               className="absolute inset-0"
                             />
                             {food.title}
-                          </a>
+                          </Link>
                         </h3>
                         <p className="mt-1 text-sm text-gray-500">
                           {food.description.plaintext.slice(0, 50)}
