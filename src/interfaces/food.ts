@@ -10,7 +10,7 @@ export interface Food {
   type: string;
   _metadata: {
     calendarMetadata: {
-      name: string;
+      name: "jcr:created" | "cq:lastModified";
       value: string;
     }[];
   };
