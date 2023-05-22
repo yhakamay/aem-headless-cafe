@@ -4,7 +4,6 @@ import Image from "next/image";
 
 export default async function Home() {
   const beverages = await fetchBeverages();
-  const duplicatedBeverages = [...beverages, ...beverages, ...beverages];
 
   return (
     <main className="flex min-h-screen flex-col justify-between">
@@ -14,7 +13,7 @@ export default async function Home() {
             ドリンク
           </h2>
           <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
-            {duplicatedBeverages.map((beverage) => (
+            {beverages.map((beverage) => (
               <div key={beverage.slug}>
                 <FadeIn>
                   <div className="group relative">
