@@ -73,3 +73,21 @@ export async function fetchBeverages(): Promise<Beverage[]> {
 
   return beverages;
 }
+
+export async function fetchFoods(): Promise<Food[]> {
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_AEM_HOST}/graphql/execute.json/${process.env.NEXT_PUBLIC_AEM_GRAPHQL_ENDPOINT}/foods-all`,
+    {
+      next: {
+        revalidate: 60 * 60 * 24, // 24時間キャッシュする
+      },
+    }
+  );
+
+  if (!res.ok) throw new Error(res.statusText);
+
+  const json = await res.json();
+  const foods = json.data.foodList.items;
+
+  return foods;
+}
