@@ -1,5 +1,6 @@
 import { fetchBeverages } from "@/app/page";
 import Badge from "@/components/atoms/badge";
+import FadeIn from "@/components/atoms/fade-in";
 import { Beverage } from "@/interfaces/beverage";
 import { BeverageDetails } from "@/interfaces/beverage-details";
 import Image from "next/image";
@@ -40,13 +41,15 @@ export default async function BeverageDetails({
           )}
           <p className="mt-4 text-gray-500">{beverage.description.plaintext}</p>
         </div>
-        <Image
-          src={`${process.env.NEXT_PUBLIC_AEM_HOST}${beverage.primaryImage._path}`}
-          alt={beverage.title}
-          width={beverage.primaryImage.width}
-          height={beverage.primaryImage.height}
-          className="rounded-lg bg-gray-100"
-        />
+        <FadeIn>
+          <Image
+            src={`${process.env.NEXT_PUBLIC_AEM_HOST}${beverage.primaryImage._path}`}
+            alt={beverage.title}
+            width={beverage.primaryImage.width}
+            height={beverage.primaryImage.height}
+            className="rounded-lg bg-gray-100"
+          />
+        </FadeIn>
       </div>
     </div>
   );

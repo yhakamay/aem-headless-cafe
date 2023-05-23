@@ -3,6 +3,7 @@ import { Food } from "@/interfaces/food";
 import Image from "next/image";
 import { fetchFoods } from "../../page";
 import { FoodDetails } from "@/interfaces/food-details";
+import FadeIn from "@/components/atoms/fade-in";
 
 export async function generateMetadata({
   params,
@@ -40,13 +41,15 @@ export default async function FoodDetails({
           )}
           <p className="mt-4 text-gray-500">{food.description.plaintext}</p>
         </div>
-        <Image
-          src={`${process.env.NEXT_PUBLIC_AEM_HOST}${food.primaryImage._path}`}
-          alt={food.title}
-          width={food.primaryImage.width}
-          height={food.primaryImage.height}
-          className="rounded-lg bg-gray-100"
-        />
+        <FadeIn>
+          <Image
+            src={`${process.env.NEXT_PUBLIC_AEM_HOST}${food.primaryImage._path}`}
+            alt={food.title}
+            width={food.primaryImage.width}
+            height={food.primaryImage.height}
+            className="rounded-lg bg-gray-100"
+          />
+        </FadeIn>
       </div>
     </div>
   );
