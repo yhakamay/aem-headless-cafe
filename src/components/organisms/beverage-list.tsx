@@ -23,7 +23,7 @@ export function BeverageList(props: Props) {
                   imgPath={beverage.primaryImage._path}
                   imgSrcWidth={beverage.primaryImage.width}
                   imgSrcHeight={beverage.primaryImage.height}
-                  slug={beverage.slug}
+                  itemPath={`/beverages/${beverage.slug}`}
                   title={beverage.title}
                   description={beverage.description.plaintext}
                 />

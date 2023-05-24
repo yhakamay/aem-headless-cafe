@@ -6,7 +6,7 @@ type Props = {
   imgAlt?: string;
   imgSrcWidth: number;
   imgSrcHeight: number;
-  slug: string;
+  itemPath: string;
   title: string;
   description: string;
   price?: string;
@@ -18,7 +18,7 @@ export default function Item(props: Props) {
     imgAlt,
     imgSrcWidth,
     imgSrcHeight,
-    slug,
+    itemPath,
     title,
     description,
     price,
@@ -38,7 +38,7 @@ export default function Item(props: Props) {
       <div className="mt-4 flex justify-between">
         <div>
           <h3 className="text-sm text-gray-700">
-            <Link href={`/foods/${slug}`}>
+            <Link href={itemPath}>
               <span aria-hidden="true" className="absolute inset-0" />
               {title}
             </Link>

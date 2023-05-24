@@ -23,7 +23,7 @@ export default function FoodList(props: Props) {
                   imgPath={food.primaryImage._path}
                   imgSrcWidth={food.primaryImage.width}
                   imgSrcHeight={food.primaryImage.height}
-                  slug={food.slug}
+                  itemPath={`/foods/${food.slug}`}
                   title={food.title}
                   description={food.description.plaintext}
                 />
