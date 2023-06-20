@@ -61,7 +61,7 @@ export async function fetchBeverages(): Promise<Beverage[]> {
     `${process.env.NEXT_PUBLIC_AEM_HOST}/graphql/execute.json/${process.env.NEXT_PUBLIC_AEM_GRAPHQL_ENDPOINT}/beverages-all`,
     {
       next: {
-        revalidate: 60 * 60 * 24, // 24時間キャッシュする
+        revalidate: false,
       },
     }
   );
@@ -79,7 +79,7 @@ export async function fetchFoods(): Promise<Food[]> {
     `${process.env.NEXT_PUBLIC_AEM_HOST}/graphql/execute.json/${process.env.NEXT_PUBLIC_AEM_GRAPHQL_ENDPOINT}/foods-all`,
     {
       next: {
-        revalidate: 60 * 60 * 24, // 24時間キャッシュする
+        revalidate: false,
       },
     }
   );

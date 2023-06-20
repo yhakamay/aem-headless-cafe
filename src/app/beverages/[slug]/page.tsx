@@ -48,7 +48,7 @@ async function fetchBeverageDetails(slug: string): Promise<BeverageDetails> {
     `${process.env.NEXT_PUBLIC_AEM_HOST}/graphql/execute.json/${process.env.NEXT_PUBLIC_AEM_GRAPHQL_ENDPOINT}/beverage-by-slug;slug=${slug}`,
     {
       next: {
-        revalidate: 60 * 60 * 24, // 24時間キャッシュする
+        revalidate: false,
       },
     }
   );
